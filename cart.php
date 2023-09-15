@@ -95,11 +95,23 @@
                       </thead>
                       <tbody>
                         <tr>
+						<?php
+                            $p=0;
+                            include("./include/config.php");
+                            $qry = "SELECT * FROM cart";
+                            $res = mysqli_query($conn, $qry);
+                            while ($row = mysqli_fetch_assoc($res)) {
+                                $subqry = "SELECT * FROM product WHERE id='" . $row['productid'] . "'";
+                                $subres = mysqli_query($conn, $subqry);
+                                $subrow = mysqli_fetch_assoc($subres);
+                                $p+=$subrow['productprice'];
+                            ?>
                           <td class="product-thumbnail">
-                            <img src="images/product-1.png" alt="Image" class="img-fluid">
+                            <img src="./images/product/<?php echo $subrow['productimage'] ?>" alt="Image" class="img-fluid">
                           </td>
+						  
                           <td class="product-name">
-                            <h2 class="h5 text-black">Product 1</h2>
+                            <h2 class="h5 text-black"><?php echo $subrow['productname'] ?></h2>
                           </td>
                           <td>$49.00</td>
                           <td>
@@ -114,33 +126,13 @@
                             </div>
         
                           </td>
-                          <td>$49.00</td>
+                          <td><?php echo number_format($subrow['productprice']) ?>₹</td>
                           <td><a href="#" class="btn btn-black btn-sm">X</a></td>
                         </tr>
-        
-                        <tr>
-                          <td class="product-thumbnail">
-                            <img src="images/product-2.png" alt="Image" class="img-fluid">
-                          </td>
-                          <td class="product-name">
-                            <h2 class="h5 text-black">Product 2</h2>
-                          </td>
-                          <td>$49.00</td>
-                          <td>
-                            <div class="input-group mb-3 d-flex align-items-center quantity-container" style="max-width: 120px;">
-                              <div class="input-group-prepend">
-                                <button class="btn btn-outline-black decrease" type="button">&minus;</button>
-                              </div>
-                              <input type="text" class="form-control text-center quantity-amount" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                              <div class="input-group-append">
-                                <button class="btn btn-outline-black increase" type="button">&plus;</button>
-                              </div>
-                            </div>
-        
-                          </td>
-                          <td>$49.00</td>
-                          <td><a href="#" class="btn btn-black btn-sm">X</a></td>
-                        </tr>
+                        <?php
+							}
+						?>
+                       
                       </tbody>
                     </table>
                   </div>
@@ -154,21 +146,10 @@
                       <button class="btn btn-black btn-sm btn-block">Update Cart</button>
                     </div>
                     <div class="col-md-6">
-                      <button class="btn btn-outline-black btn-sm btn-block">Continue Shopping</button>
+                     <a href="shop.php" ><button class="btn btn-outline-black btn-sm btn-block" >Continue Shopping</button></a>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <label class="text-black h4" for="coupon">Coupon</label>
-                      <p>Enter your coupon code if you have one.</p>
-                    </div>
-                    <div class="col-md-8 mb-3 mb-md-0">
-                      <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
-                    </div>
-                    <div class="col-md-4">
-                      <button class="btn btn-black">Apply Coupon</button>
-                    </div>
-                  </div>
+                
                 </div>
                 <div class="col-md-6 pl-5">
                   <div class="row justify-content-end">

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
@@ -17,7 +20,20 @@
 						<li><a class="nav-link" href="services.php">Services</a></li>
 						
 						<li><a class="nav-link" href="contact.php">Contact us</a></li>
-						<li><a class="nav-link" href="login.php">Login</a></li>
+						
+						<?php
+                            if (isset($_SESSION['loginstatus']) && $_SESSION['loginstatus'] = true) {
+                           ?>
+                        <a href="logout.php">Log out</a>
+                         <?php
+                         } else {
+
+                         ?>
+						 <li><a class="nav-link" href="login.php">Login</a></li>
+						 <li><a class="nav-link" href="register.php">Register</a></li>
+						 <?php
+                }
+                ?>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">

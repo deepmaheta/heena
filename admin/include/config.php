@@ -1,4 +1,4 @@
 <?php
-$conn=mysqli_connect("localhost","root","","heer");
+$conn=mysqli_connect("localhost","root","","heena");
 
 ?>
