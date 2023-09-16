@@ -60,7 +60,7 @@
                 ?>
 		      		<!-- Start Column 1 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="cart.php">
+						<a class="product-item" href="addtocart.php?prodid=<?php echo $row[0] ?>">
 							<img src="./image/product/<?php echo $row[2] ?>" class="img-fluid product-thumbnail" >
 							<h3 class="product-title"><?php echo $row[1];?></h3>
 							<strong class="product-price"><?php echo number_format($row[3]);?>₹</strong>

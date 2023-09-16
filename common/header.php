@@ -24,7 +24,7 @@ session_start();
 						<?php
                             if (isset($_SESSION['loginstatus']) && $_SESSION['loginstatus'] = true) {
                            ?>
-                        <a href="logout.php">Log out</a>
+						<li><a class="nav-link" href="logout.php">Log out</a></li>
                          <?php
                          } else {
 

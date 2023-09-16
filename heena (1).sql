@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2023 at 03:25 PM
+-- Generation Time: Sep 16, 2023 at 01:48 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -54,6 +54,14 @@ CREATE TABLE `cart` (
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `productid`, `userid`, `quantity`) VALUES
+(4, 5, 2, 1),
+(5, 12, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -94,17 +102,16 @@ CREATE TABLE `user` (
   `id` int(255) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `phone` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `address` text DEFAULT NULL
+  `email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `password`, `phone`, `email`, `address`) VALUES
-(1, NULL, 'd41d8cd98f00b204e9800998ecf8427e', NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `name`, `password`, `email`) VALUES
+(2, 'milan bharadva', 'Milan@2004', 'admin@gmail.com'),
+(3, 'milan bharadva', 'Milan@2004', 'admin@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -148,7 +155,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -160,7 +167,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
